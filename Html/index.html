@@ -1,24 +1,271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloomVayage</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Bloom Voyage - Descubre Lugares Hermosos y Románticos</title>
+    <meta name="description" content="Bloom Voyage es una guía de viajes estética que te ayuda a descubrir lugares hermosos, significativos y románticos alrededor del mundo.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Theme Initializer - Apply theme immediately -->
-    <script src="js/theme-initializer.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../Css/main.css">
+    <link rel="stylesheet" href="../Css/animations.css">
 </head>
-<body class="light_mode">
-    
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="destinations.html">Destinos</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Registro</button>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Registro</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-slider">
+                <div class="hero-slide active">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" alt="Beautiful destination">
+                </div>
+                <div class="hero-slide">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80" alt="Romantic sunset">
+                </div>
+                <div class="hero-slide">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" alt="Tropical beach">
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Descubre Lugares Mágicos</h1>
+                <p>Encuentra los destinos más hermosos y románticos del mundo</p>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Buscar destino...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Places Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title fade-in-on-scroll">
+                    <h2>Lugares Populares</h2>
+                    <p>Los destinos más visitados y recomendados</p>
+                </div>
+                <div class="card-grid">
+                    <div class="card fade-in-on-scroll" data-destination="san-blas">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="San Blas" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">San Blas</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Panamá</p>
+                            <p>Islas paradisíacas con aguas cristalinas y playas de arena blanca.</p>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=san-blas'">Ver Más</button>
+                        </div>
+                    </div>
+                    <div class="card fade-in-on-scroll" data-destination="boquete">
+                        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&q=80" alt="Boquete" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Boquete</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Panamá - Tierras Altas</p>
+                            <p>Montañas verdes, clima fresco y plantaciones de café.</p>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=boquete'">Ver Más</button>
+                        </div>
+                    </div>
+                    <div class="card fade-in-on-scroll" data-destination="bocas-toro">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Bocas del Toro" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Bocas del Toro</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Panamá - Islas</p>
+                            <p>Arquipiélago caribeño con vida marina increíble.</p>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=bocas-toro'">Ver Más</button>
+                        </div>
+                    </div>
+                    <div class="card fade-in-on-scroll" data-destination="paris">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="París" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">París</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Francia</p>
+                            <p>La ciudad del amor con vistas espectaculares de la Torre Eiffel.</p>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=paris'">Ver Más</button>
+                        </div>
+                    </div>
+                    <div class="card fade-in-on-scroll" data-destination="santorini">
+                        <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=600&q=80" alt="Santorini" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Santorini</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Grecia</p>
+                            <p>Atardeceres inolvidables sobre el mar Egeo.</p>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=santorini'">Ver Más</button>
+                        </div>
+                    </div>
+                    <div class="card fade-in-on-scroll" data-destination="bali">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Bali" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Bali</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Indonesia</p>
+                            <p>Playas exóticas, templos antiguos y cultura única.</p>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=bali'">Ver Más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Categories Section -->
+        <section class="section" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-title fade-in-on-scroll">
+                    <h2>Categorías Populares</h2>
+                    <p>Explora por tipo de experiencia</p>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card fade-in-on-scroll" onclick="window.location.href='romantic-spots.html'">
+                        <i class="fas fa-heart"></i>
+                        <h3>Lugares Románticos</h3>
+                        <p>Lugares perfectos para momentos especiales</p>
+                    </div>
+                    <div class="category-card fade-in-on-scroll" onclick="window.location.href='destinations.html?category=beach'">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <h3>Playas</h3>
+                        <p>Las mejores playas del mundo</p>
+                    </div>
+                    <div class="category-card fade-in-on-scroll" onclick="window.location.href='experiences.html'">
+                        <i class="fas fa-mountain"></i>
+                        <h3>Aventuras</h3>
+                        <p>Experiencias llenas de adrenalina</p>
+                    </div>
+                    <div class="category-card fade-in-on-scroll" onclick="window.location.href='destinations.html?category=scenic'">
+                        <i class="fas fa-camera"></i>
+                        <h3>Vistas Panorámicas</h3>
+                        <p>Vistas increíbles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title fade-in-on-scroll">
+                    <h2>Recomendaciones Personalizadas</h2>
+                    <p>Selecciones especiales para ti</p>
+                </div>
+                <div class="card-grid">
+                    <div class="card scale-in-on-scroll" onclick="window.location.href='romantic-spots.html'">
+                        <img src="https://images.unsplash.com/photo-1518568814500-bf0f88e8c137?w=600&q=80" alt="Perfecto para propuestas" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Perfecto para Propuestas</h3>
+                            <p>Lugares mágicos para pedidas de mano inolvidables.</p>
+                            <button class="btn btn-primary card-button">Explorar</button>
+                        </div>
+                    </div>
+                    <div class="card scale-in-on-scroll" onclick="window.location.href='destinations.html?category=sunset'">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Mejores atardeceres" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Mejores Atardeceres</h3>
+                            <p>Los mejores lugares para ver atardeceres espectaculares.</p>
+                            <button class="btn btn-primary card-button">Explorar</button>
+                        </div>
+                    </div>
+                    <div class="card scale-in-on-scroll" onclick="window.location.href='destinations.html?category=weekend'">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80" alt="Escapadas de fin de semana" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Escapadas de Fin de Semana</h3>
+                            <p>Escapadas perfectas para un fin de semana romántico.</p>
+                            <button class="btn btn-primary card-button">Explorar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bloom Voyage</h3>
+                    <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="destinations.html">Destinos</a></li>
+                        <li><a href="restaurants.html">Restaurantes</a></li>
+                        <li><a href="hotels.html">Hoteles</a></li>
+                        <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="tips.html">Consejos de Viaje</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información de Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Lun-Vie: 9AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bloom Voyage – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../Js/main.js"></script>
+    <script src="../Js/navigation.js"></script>
+    <script src="../Js/destinations-data.js"></script>
+</body>
+</html>

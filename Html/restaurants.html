@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes - Bloom Voyage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Css/main.css">
+    <link rel="stylesheet" href="../Css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="destinations.html">Destinos</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Registro</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Registro</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section" style="padding-top: 4rem;">
+            <div class="container">
+                <div class="section-title fade-in-on-scroll">
+                    <h2>Restaurantes Recomendados</h2>
+                    <p>Los mejores lugares para disfrutar de una comida excepcional</p>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card fade-in-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="Restaurante Romántico" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Le Jules Verne</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> París, Francia</p>
+                            <p>Restaurante en la Torre Eiffel con vistas panorámicas de París. Experiencia única de alta cocina francesa.</p>
+                            <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
+                                <p style="font-size: 0.875rem;"><strong>Teléfono:</strong> +33 1 45 55 61 44</p>
+                                <p style="font-size: 0.875rem;"><strong>Sitio Web:</strong> <a href="#" target="_blank">lejulesverne-paris.com</a></p>
+                                <p style="font-size: 0.875rem;"><strong>Precio:</strong> €200-300 por persona</p>
+                                <p style="font-size: 0.875rem;"><strong>Tipo:</strong> Alta cocina francesa</p>
+                            </div>
+                            <button class="btn btn-primary card-button">Ver Más</button>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Restaurante con Vista" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Sky Garden Restaurant</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Londres, Reino Unido</p>
+                            <p>Vistas de 360° de Londres desde el corazón de la ciudad. Ambiente sofisticado y cocina moderna europea.</p>
+                            <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
+                                <p style="font-size: 0.875rem;"><strong>Teléfono:</strong> +44 20 7337 2344</p>
+                                <p style="font-size: 0.875rem;"><strong>Sitio Web:</strong> <a href="#" target="_blank">skygarden.london</a></p>
+                                <p style="font-size: 0.875rem;"><strong>Precio:</strong> £50-100 por persona</p>
+                                <p style="font-size: 0.875rem;"><strong>Tipo:</strong> Cocina moderna europea</p>
+                            </div>
+                            <button class="btn btn-primary card-button">Ver Más</button>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Restaurante en la Playa" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Restaurante Playa Blanca</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> San Blas, Panamá</p>
+                            <p>Restaurante frente al mar con mariscos frescos y ambiente relajado. Perfecto para cenas románticas al atardecer.</p>
+                            <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
+                                <p style="font-size: 0.875rem;"><strong>Teléfono:</strong> +507 6123-4567</p>
+                                <p style="font-size: 0.875rem;"><strong>Instagram:</strong> @playablancarest</p>
+                                <p style="font-size: 0.875rem;"><strong>Precio:</strong> $30-60 por persona</p>
+                                <p style="font-size: 0.875rem;"><strong>Tipo:</strong> Mariscos y cocina local</p>
+                            </div>
+                            <button class="btn btn-primary card-button">Ver Más</button>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&q=80" alt="Restaurante Rooftop" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Rooftop Oia</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Santorini, Grecia</p>
+                            <p>Restaurante con terraza con vistas al atardecer más espectacular del mundo. Cocina mediterránea de autor.</p>
+                            <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
+                                <p style="font-size: 0.875rem;"><strong>Teléfono:</strong> +30 2286 071156</p>
+                                <p style="font-size: 0.875rem;"><strong>Sitio Web:</strong> <a href="#" target="_blank">rooftopoia.com</a></p>
+                                <p style="font-size: 0.875rem;"><strong>Precio:</strong> €80-150 por persona</p>
+                                <p style="font-size: 0.875rem;"><strong>Tipo:</strong> Cocina mediterránea</p>
+                            </div>
+                            <button class="btn btn-primary card-button">Ver Más</button>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Restaurante Café" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Café de Altura</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Boquete, Panamá</p>
+                            <p>Cafetería y restaurante en una plantación de café con vistas a las montañas. Menú con ingredientes locales frescos.</p>
+                            <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
+                                <p style="font-size: 0.875rem;"><strong>Teléfono:</strong> +507 7201-2345</p>
+                                <p style="font-size: 0.875rem;"><strong>Instagram:</strong> @cafedealtura</p>
+                                <p style="font-size: 0.875rem;"><strong>Precio:</strong> $15-35 por persona</p>
+                                <p style="font-size: 0.875rem;"><strong>Tipo:</strong> Café y comida local</p>
+                            </div>
+                            <button class="btn btn-primary card-button">Ver Más</button>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Restaurante Balinés" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Warung Nusa</h3>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</p>
+                            <p>Restaurante tradicional balinés con cocina auténtica y ambiente acogedor. Perfecto para experimentar la cultura local.</p>
+                            <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
+                                <p style="font-size: 0.875rem;"><strong>Teléfono:</strong> +62 361 701 601</p>
+                                <p style="font-size: 0.875rem;"><strong>Sitio Web:</strong> <a href="#" target="_blank">warungnusa.com</a></p>
+                                <p style="font-size: 0.875rem;"><strong>Precio:</strong> $10-25 por persona</p>
+                                <p style="font-size: 0.875rem;"><strong>Tipo:</strong> Cocina balinesa tradicional</p>
+                            </div>
+                            <button class="btn btn-primary card-button">Ver Más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bloom Voyage</h3>
+                    <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="destinations.html">Destinos</a></li>
+                        <li><a href="restaurants.html">Restaurantes</a></li>
+                        <li><a href="hotels.html">Hoteles</a></li>
+                        <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="tips.html">Consejos de Viaje</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información de Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Lun-Vie: 9AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bloom Voyage – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../Js/main.js"></script>
+    <script src="../Js/navigation.js"></script>
+</body>
+</html>
+

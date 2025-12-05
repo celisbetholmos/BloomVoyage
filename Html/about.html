@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BloomVoyage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Css/main.css">
+    <link rel="stylesheet" href="../Css/animations.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.9) 0%, rgba(200, 162, 200, 0.9) 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .mission-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        .mission-card p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .value-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        .value-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'">BloomVoyage</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="about-hero fade-in-on-scroll">
+            <h1>About BloomVoyage</h1>
+            <p style="font-size: 1.25rem;">Tu guía de viajes estética y romántica</p>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="mission-card fade-in-on-scroll">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Our Mission</h2>
+                    <p>
+                        BloomVoyage is a soft, aesthetic travel guide created to help you discover beautiful, meaningful and romantic places around the world. We share destinations, experiences, hotels and restaurants to make your trips unforgettable.
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        Our goal is to inspire you to explore the world's most enchanting locations, whether you're planning a romantic getaway, a proposal, a special anniversary, or simply seeking breathtaking experiences. We believe that travel should be beautiful, meaningful, and filled with moments that create lasting memories.
+                    </p>
+                </div>
+
+                <div class="section-title fade-in-on-scroll" style="margin-top: 4rem;">
+                    <h2>What We Offer</h2>
+                    <p>Todo lo que necesitas para planificar el viaje perfecto</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card fade-in-on-scroll">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Curated Destinations</h3>
+                        <p>Carefully selected destinations that offer beauty, romance, and unforgettable experiences.</p>
+                    </div>
+                    <div class="value-card fade-in-on-scroll">
+                        <i class="fas fa-heart"></i>
+                        <h3>Romantic Spots</h3>
+                        <p>Special places perfect for proposals, anniversaries, and romantic moments.</p>
+                    </div>
+                    <div class="value-card fade-in-on-scroll">
+                        <i class="fas fa-star"></i>
+                        <h3>Best Experiences</h3>
+                        <p>Handpicked activities and experiences that create lasting memories.</p>
+                    </div>
+                    <div class="value-card fade-in-on-scroll">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Travel Tips</h3>
+                        <p>Practical advice and guides to help you plan the perfect trip.</p>
+                    </div>
+                    <div class="value-card fade-in-on-scroll">
+                        <i class="fas fa-hotel"></i>
+                        <h3>Hotel Recommendations</h3>
+                        <p>Beautiful accommodations that match the aesthetic of your destination.</p>
+                    </div>
+                    <div class="value-card fade-in-on-scroll">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Restaurant Guides</h3>
+                        <p>Romantic restaurants and dining experiences for special occasions.</p>
+                    </div>
+                </div>
+
+                <div class="mission-card fade-in-on-scroll" style="margin-top: 4rem;">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Why Choose BloomVoyage?</h2>
+                    <p>
+                        We understand that travel is more than just visiting places—it's about creating moments, sharing experiences, and making memories that last a lifetime. That's why we focus on destinations and experiences that are not only beautiful but also meaningful.
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        Whether you're looking for the perfect spot to propose, planning a romantic getaway, or simply seeking inspiration for your next adventure, BloomVoyage is here to guide you to the world's most enchanting places.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BloomVoyage</h3>
+                    <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="experiences.html">Experiences</a></li>
+                        <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BloomVoyage – All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../Js/main.js"></script>
+    <script src="../Js/navigation.js"></script>
+</body>
+</html>
+
