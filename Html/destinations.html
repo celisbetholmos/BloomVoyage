@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos - Bloom Voyage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Css/main.css">
+    <link rel="stylesheet" href="../Css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="destinations.html">Destinos</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Registro</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Registro</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section" style="padding-top: 4rem;">
+            <div class="container">
+                <div class="section-title fade-in-on-scroll">
+                    <h2>Todos los Destinos</h2>
+                    <p>Explora todos nuestros destinos increíbles</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <button class="btn btn-secondary filter-btn active" data-filter="all">Todos</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="beach">Playas</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="mountain">Montañas</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="city">Ciudades</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="romantic">Románticos</button>
+                </div>
+
+                <!-- Destinations Grid -->
+                <div class="card-grid" id="destinations-grid">
+                    <!-- Las tarjetas se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bloom Voyage</h3>
+                    <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="destinations.html">Destinos</a></li>
+                        <li><a href="restaurants.html">Restaurantes</a></li>
+                        <li><a href="hotels.html">Hoteles</a></li>
+                        <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="tips.html">Consejos de Viaje</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información de Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Lun-Vie: 9AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bloom Voyage – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../Js/main.js"></script>
+    <script src="../Js/navigation.js"></script>
+    <script src="../Js/components.js"></script>
+    <script src="../Js/destinations-data.js"></script>
+    <script>
+        // Cargar destinos dinámicamente
+        function loadDestinations() {
+            const destinations = getAllDestinations();
+            const grid = document.getElementById('destinations-grid');
+            
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            destinations.forEach(destination => {
+                const card = createDestinationCard(destination);
+                grid.innerHTML += card;
+            });
+            
+            // Agregar event listeners a los botones
+            document.querySelectorAll('.card-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.card');
+                    const destinationId = card.dataset.destination;
+                    window.location.href = `destination-detail.html?id=${destinationId}`;
+                });
+            });
+        }
+        
+        // Filtros
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                const cards = document.querySelectorAll('.card');
+                
+                cards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        // Por ahora mostrar todos, puedes agregar lógica de categorías
+                        card.style.display = 'block';
+                    }
+                });
+            });
+        });
+        
+        // Cargar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadDestinations);
+        } else {
+            loadDestinations();
+        }
+    </script>
+</body>
+</html>

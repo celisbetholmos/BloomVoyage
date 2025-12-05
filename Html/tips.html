@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tips - BloomVoyage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Css/main.css">
+    <link rel="stylesheet" href="../Css/animations.css">
+    <style>
+        .tip-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+        .tip-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .tip-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .tip-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+        .tip-list li:last-child {
+            border-bottom: none;
+        }
+        .tip-list li i {
+            color: var(--primary-color);
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'">BloomVoyage</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-buttons">
+                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section" style="padding-top: 4rem;">
+            <div class="container">
+                <div class="section-title fade-in-on-scroll">
+                    <h2>Travel Tips & Guides</h2>
+                    <p>Consejos útiles para hacer tu viaje perfecto</p>
+                </div>
+
+                <!-- Best Time to Visit -->
+                <div class="tip-card fade-in-on-scroll">
+                    <h3><i class="fas fa-calendar-alt"></i> Best Time to Visit</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Tropical Destinations</h4>
+                            <p style="color: var(--text-secondary);">December - April: Dry season, perfect weather. May - November: Rainy season, lower prices.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">European Cities</h4>
+                            <p style="color: var(--text-secondary);">April - June, September - October: Mild weather, fewer crowds. July - August: Peak season, warmer.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Mountain Regions</h4>
+                            <p style="color: var(--text-secondary);">June - September: Best for hiking. December - March: Ski season.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What to Pack -->
+                <div class="tip-card fade-in-on-scroll">
+                    <h3><i class="fas fa-suitcase"></i> What to Pack</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Beach Destinations</h4>
+                            <ul class="tip-list">
+                                <li><i class="fas fa-check-circle"></i> <span>Swimwear and cover-ups</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Sunscreen (SPF 50+)</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Sun hat and sunglasses</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Light, breathable clothing</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Waterproof bag for electronics</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Mountain/Cooler Climates</h4>
+                            <ul class="tip-list">
+                                <li><i class="fas fa-check-circle"></i> <span>Layered clothing</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Comfortable hiking shoes</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Warm jacket or fleece</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Rain jacket</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Backpack for day trips</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">City Destinations</h4>
+                            <ul class="tip-list">
+                                <li><i class="fas fa-check-circle"></i> <span>Comfortable walking shoes</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Versatile, mix-and-match outfits</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Light jacket or cardigan</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Small crossbody bag</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Power adapter for electronics</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transportation Tips -->
+                <div class="tip-card fade-in-on-scroll">
+                    <h3><i class="fas fa-route"></i> Transportation Tips</h3>
+                    <ul class="tip-list">
+                        <li><i class="fas fa-lightbulb"></i> <span><strong>Book in advance:</strong> Flights and accommodations are often cheaper when booked 2-3 months ahead.</span></li>
+                        <li><i class="fas fa-lightbulb"></i> <span><strong>Local transportation:</strong> Research public transport options. Many cities offer day passes for tourists.</span></li>
+                        <li><i class="fas fa-lightbulb"></i> <span><strong>Rideshare apps:</strong> Download local rideshare apps before arriving (Uber, Grab, etc.).</span></li>
+                        <li><i class="fas fa-lightbulb"></i> <span><strong>Walking tours:</strong> Many cities offer free walking tours - great way to orient yourself.</span></li>
+                        <li><i class="fas fa-lightbulb"></i> <span><strong>Rental cars:</strong> Check if you need an international driving permit for your destination.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Safety Tips -->
+                <div class="tip-card fade-in-on-scroll">
+                    <h3><i class="fas fa-shield-alt"></i> Safety Tips</h3>
+                    <ul class="tip-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Sun protection:</strong> Always wear sunscreen, even on cloudy days. Reapply every 2 hours.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Stay hydrated:</strong> Drink plenty of water, especially in hot climates or at high altitudes.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Comfortable footwear:</strong> Wear appropriate shoes for the terrain to avoid injuries.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Travel insurance:</strong> Consider purchasing travel insurance for medical emergencies and trip cancellations.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Keep copies:</strong> Have digital copies of important documents (passport, ID, insurance) stored securely.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Emergency contacts:</strong> Save local emergency numbers and your country's embassy contact info.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Local Rules & Customs -->
+                <div class="tip-card fade-in-on-scroll">
+                    <h3><i class="fas fa-info-circle"></i> Local Rules & Important Customs</h3>
+                    <ul class="tip-list">
+                        <li><i class="fas fa-exclamation-triangle"></i> <span><strong>Dress codes:</strong> Some religious sites require modest clothing. Always check before visiting.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> <span><strong>Tipping culture:</strong> Research tipping customs - they vary greatly by country.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> <span><strong>Photography:</strong> Some places prohibit photography. Always ask permission, especially in sacred sites.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> <span><strong>Bargaining:</strong> In many markets, bargaining is expected. Start at 50-60% of the asking price.</span></li>
+                        <li><i class="fas fa-exclamation-triangle"></i> <span><strong>Respect local customs:</strong> Learn basic greetings and customs. A little effort goes a long way.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Climate Information -->
+                <div class="tip-card fade-in-on-scroll">
+                    <h3><i class="fas fa-cloud-sun"></i> Climate Information</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Tropical</h4>
+                            <p style="color: var(--text-secondary);">Hot and humid year-round. Two seasons: dry (Dec-Apr) and rainy (May-Nov). Average: 25-30°C.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Temperate</h4>
+                            <p style="color: var(--text-secondary);">Four distinct seasons. Mild summers (20-25°C) and cool winters (5-15°C). Best: Spring and Fall.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Mediterranean</h4>
+                            <p style="color: var(--text-secondary);">Hot, dry summers (25-35°C) and mild, wet winters (10-15°C). Perfect: May-June, September-October.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Mountain</h4>
+                            <p style="color: var(--text-secondary);">Cooler temperatures, significant day/night temperature variations. Can drop below freezing at night.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BloomVoyage</h3>
+                    <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="experiences.html">Experiences</a></li>
+                        <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BloomVoyage – All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../Js/main.js"></script>
+    <script src="../Js/navigation.js"></script>
+</body>
+</html>
+
