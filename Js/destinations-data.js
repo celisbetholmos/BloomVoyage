@@ -14,10 +14,10 @@ const destinationsData = {
         description: 'San Blas, también conocida como Guna Yala, es un archipiélago caribeño en Panamá compuesto por más de 365 islas e islotes de arena blanca, aguas cristalinas y palmeras, hogar autónomo del pueblo Guna que ha preservado sus tradiciones ancestrales durante siglos. Su historia se remonta a unos 500 años atrás, cuando los Guna migraron desde el Darién continental hacia estas islas para escapar de conflictos, consolidando su autonomía tras la Revolución Guna de 1925 liderada por Nele Kantule, que resultó en la creación oficial de la comarca en 1938. Este paraíso pristino ofrece una inmersión única en la naturaleza y la cultura indígena, lejos de hoteles masivos y con un enfoque en el turismo sostenible.​',
         history: 'San Blas es un archipiélago de 365 islas ubicado en el Caribe panameño, habitado por la comunidad indígena Guna. Estas islas han mantenido su cultura tradicional y belleza natural intacta durante siglos. Las islas son conocidas por sus aguas turquesas, playas de arena blanca y la hospitalidad de la comunidad Guna.',
         images: [
-            { url: '/fotos/san blas.jpg', alt: 'Islas de San Blas' },
-            { url: '/san blas/playa de san blas.jpg', alt: 'Playa de San Blas' },
-            { url: '/san blas/agua.jpg', alt: 'Aguas cristalinas' },
-            { url: '/san blas/atarde.jpg', alt: 'Atardecer en San Blas' }
+            { url: './fotos/san blas.jpg', alt: 'Islas de San Blas' },
+            { url: './san blas/playa de san blas.jpg', alt: 'Playa de San Blas' },
+            { url: './san blas/agua.jpg', alt: 'Aguas cristalinas' },
+            { url: './san blas/atarde.jpg', alt: 'Atardecer en San Blas' }
         ],
         videoId: 'https://www.youtube.com/watch?v=vb03mc_KJHs', // Reemplazar con ID real de YouTube
         contact: {
