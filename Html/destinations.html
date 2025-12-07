@@ -18,10 +18,12 @@
                 <ul class="nav-menu">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="destinations.html">Destinos</a></li>
-                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="experiences.html">Experiencias</a></li>
                     <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
                     <li><a href="romantic-spots.html">Lugares Románticos</a></li>
-                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="about.html">Sobre nosotros</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
@@ -34,10 +36,14 @@
                 <span></span>
             </div>
         </div>
+        <!-- Mobile Menu -->
         <div class="mobile-menu">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="restaurants.html">Restaurantes</a></li>
+                <li><a href="hotels.html">Hoteles</a></li>
+                <li><a href="experiences.html">Experiencias</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="signup.html">Registro</a></li>
             </ul>
@@ -64,7 +70,10 @@
 
                 <!-- Destinations Grid -->
                 <div class="card-grid" id="destinations-grid">
-                    <!-- Las tarjetas se cargarán dinámicamente -->
+                    <div style="text-align: center; padding: 3rem; width: 100%;">
+                        <div class="loading-spinner" style="margin: 0 auto;"></div>
+                        <p style="margin-top: 1rem; color: var(--text-secondary);">Cargando destinos...</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -116,60 +125,209 @@
         </div>
     </footer>
 
+    <script src="../Js/destinations-data.js"></script>
+    <script src="../Js/components.js"></script>
     <script src="../Js/main.js"></script>
     <script src="../Js/navigation.js"></script>
-    <script src="../Js/components.js"></script>
-    <script src="../Js/destinations-data.js"></script>
     <script>
         // Cargar destinos dinámicamente
         function loadDestinations() {
-            const destinations = getAllDestinations();
-            const grid = document.getElementById('destinations-grid');
-            
-            if (!grid) return;
-            
-            grid.innerHTML = '';
-            
-            destinations.forEach(destination => {
-                const card = createDestinationCard(destination);
-                grid.innerHTML += card;
-            });
-            
-            // Agregar event listeners a los botones
-            document.querySelectorAll('.card-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    const card = this.closest('.card');
-                    const destinationId = card.dataset.destination;
-                    window.location.href = `destination-detail.html?id=${destinationId}`;
+            try {
+                // Verificar que las funciones estén disponibles
+                if (typeof getAllDestinations === 'undefined') {
+                    console.error('getAllDestinations no está definida');
+                    return;
+                }
+                if (typeof createDestinationCard === 'undefined') {
+                    console.error('createDestinationCard no está definida');
+                    return;
+                }
+                
+                const destinations = getAllDestinations();
+                const grid = document.getElementById('destinations-grid');
+                
+                if (!grid) {
+                    console.error('No se encontró el elemento destinations-grid');
+                    return;
+                }
+                
+                if (!destinations || destinations.length === 0) {
+                    grid.innerHTML = '<p style="text-align: center; padding: 2rem;">No hay destinos disponibles.</p>';
+                    return;
+                }
+                
+                grid.innerHTML = '';
+                
+                // Crear todas las tarjetas primero
+                let cardsHTML = '';
+                destinations.forEach(destination => {
+                    try {
+                        const card = createDestinationCard(destination);
+                        cardsHTML += card;
+                    } catch (error) {
+                        console.error('Error creando tarjeta para:', destination.name, error);
+                    }
                 });
+                
+                // Insertar todas las tarjetas de una vez
+                grid.innerHTML = cardsHTML;
+                
+                // Asegurar que las tarjetas sean visibles inmediatamente
+                setTimeout(() => {
+                    const cards = document.querySelectorAll('#destinations-grid .card');
+                    cards.forEach(card => {
+                        // Asegurar que las tarjetas sean visibles
+                        card.style.opacity = '1';
+                        card.style.transform = 'none';
+                        card.classList.add('visible');
+                    });
+                }, 100);
+                
+                // Inicializar animaciones para las nuevas tarjetas (opcional, para animaciones suaves)
+                initScrollAnimationsForCards();
+                
+                // Agregar event listeners a los botones
+                setTimeout(() => {
+                    document.querySelectorAll('.card-button').forEach(button => {
+                        // Remover listeners anteriores si existen
+                        button.replaceWith(button.cloneNode(true));
+                    });
+                    
+                    document.querySelectorAll('.card-button').forEach(button => {
+                        button.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const card = this.closest('.card');
+                            if (card) {
+                                const destinationId = card.dataset.destination;
+                                if (destinationId) {
+                                    window.location.href = `destination-detail.html?id=${destinationId}`;
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Agregar efectos hover a las tarjetas
+                    document.querySelectorAll('.card').forEach(card => {
+                        card.addEventListener('mouseenter', function() {
+                            this.style.transform = 'translateY(-10px)';
+                            this.style.transition = 'transform 0.3s ease';
+                        });
+                        
+                        card.addEventListener('mouseleave', function() {
+                            this.style.transform = 'translateY(0)';
+                        });
+                    });
+                }, 50);
+                
+                // Configurar filtros después de cargar las tarjetas
+                setupFilters();
+                
+            } catch (error) {
+                console.error('Error cargando destinos:', error);
+                const grid = document.getElementById('destinations-grid');
+                if (grid) {
+                    grid.innerHTML = '<p style="text-align: center; padding: 2rem; color: red;">Error al cargar los destinos. Por favor, recarga la página.</p>';
+                }
+            }
+        }
+        
+        // Inicializar animaciones para las tarjetas cargadas dinámicamente
+        function initScrollAnimationsForCards() {
+            const animatedCards = document.querySelectorAll('#destinations-grid .fade-in-on-scroll');
+            
+            if (animatedCards.length === 0) return;
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            animatedCards.forEach(card => {
+                observer.observe(card);
             });
         }
         
-        // Filtros
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        // Configurar filtros
+        function setupFilters() {
+            // Filtros
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                // Remover listeners anteriores
+                const newBtn = btn.cloneNode(true);
+                btn.parentNode.replaceChild(newBtn, btn);
                 
-                const filter = this.dataset.filter;
-                const cards = document.querySelectorAll('.card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all') {
-                        card.style.display = 'block';
-                    } else {
-                        // Por ahora mostrar todos, puedes agregar lógica de categorías
-                        card.style.display = 'block';
-                    }
+                newBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    const cards = document.querySelectorAll('#destinations-grid .card');
+                    
+                    cards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const cardCategory = card.dataset.category;
+                            if (cardCategory === filter) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
                 });
             });
-        });
+            
+            // Aplicar filtro desde URL si existe
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            if (categoryParam) {
+                setTimeout(() => {
+                    const filterBtn = document.querySelector(`.filter-btn[data-filter="${categoryParam}"]`);
+                    if (filterBtn) {
+                        filterBtn.click();
+                    }
+                }, 300);
+            }
+        }
         
         // Cargar cuando el DOM esté listo
+        function initDestinations() {
+            // Esperar a que todos los scripts estén cargados
+            const checkScripts = setInterval(() => {
+                if (typeof getAllDestinations !== 'undefined' && typeof createDestinationCard !== 'undefined') {
+                    clearInterval(checkScripts);
+                    loadDestinations();
+                }
+            }, 50);
+            
+            // Timeout de seguridad después de 3 segundos
+            setTimeout(() => {
+                clearInterval(checkScripts);
+                if (typeof getAllDestinations !== 'undefined' && typeof createDestinationCard !== 'undefined') {
+                    loadDestinations();
+                } else {
+                    const grid = document.getElementById('destinations-grid');
+                    if (grid) {
+                        grid.innerHTML = '<p style="text-align: center; padding: 2rem; color: red;">Error: No se pudieron cargar los scripts necesarios. Por favor, recarga la página.</p>';
+                    }
+                }
+            }, 3000);
+        }
+        
+        // Iniciar cuando el DOM esté listo
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadDestinations);
+            document.addEventListener('DOMContentLoaded', initDestinations);
         } else {
-            loadDestinations();
+            initDestinations();
         }
     </script>
 </body>

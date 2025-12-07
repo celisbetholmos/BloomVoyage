@@ -93,43 +93,47 @@ function createFooter() {
 
 // ===== Componente Tarjeta de Destino =====
 function createDestinationCard(destination) {
-    // Historia breve (primeros 150 caracteres)
-    const shortHistory = destination.history ? destination.history.substring(0, 150) + '...' : '';
+    // Descripción corta (primeros 120 caracteres)
+    const shortDescription = destination.description ? 
+        (destination.description.length > 120 ? destination.description.substring(0, 120) + '...' : destination.description) : 
+        'Descubre este increíble destino.';
     
     return `
-        <div class="card fade-in-on-scroll" data-destination="${destination.id}">
-            <img src="${destination.images[0].url}" alt="${destination.name}" class="card-image">
-            <div class="card-content">
-                <h3 class="card-title">${destination.name}</h3>
-                <p class="card-location"><i class="fas fa-map-marker-alt"></i> ${destination.location}</p>
-                <p>${destination.description}</p>
-                ${shortHistory ? `<p style="font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem; font-style: italic;">${shortHistory}</p>` : ''}
-                ${destination.contact ? `
-                    <div style="margin: 1rem 0; padding: 0.75rem; background: rgba(255, 107, 157, 0.1); border-radius: 10px;">
-                        <p style="font-size: 0.875rem; margin-bottom: 0.25rem;"><strong>Contacto:</strong></p>
-                        ${destination.contact.phone ? `<p style="font-size: 0.875rem;"><i class="fas fa-phone"></i> ${destination.contact.phone}</p>` : ''}
-                        ${destination.contact.website ? `<p style="font-size: 0.875rem;"><i class="fas fa-globe"></i> <a href="${destination.contact.website}" target="_blank" style="color: var(--primary-color);">Visitar sitio web</a></p>` : ''}
-                        ${destination.contact.social ? `<p style="font-size: 0.875rem;"><i class="fab fa-instagram"></i> ${destination.contact.social}</p>` : ''}
-                    </div>
-                ` : ''}
-                <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=${destination.id}'">Ver Más</button>
+        <div class="card fade-in-on-scroll" data-destination="${destination.id}" data-category="${destination.category || 'all'}" style="opacity: 1; transform: none;">
+            <img src="${destination.images[0].url}" alt="${destination.name}" class="card-image" style="width: 100%; height: 250px; object-fit: cover; border-radius: 15px 15px 0 0;">
+            <div class="card-content" style="padding: 1.5rem;">
+                <h3 class="card-title" style="margin-bottom: 0.5rem; color: var(--text-primary);">${destination.name}</h3>
+                <p class="card-location" style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> ${destination.location}
+                </p>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; font-size: 0.95rem;">${shortDescription}</p>
+                <button class="btn btn-primary card-button" style="width: 100%; margin-top: 1rem;" onclick="window.location.href='destination-detail.html?id=${destination.id}'">Ver Más</button>
             </div>
         </div>
     `;
 }
 
-// ===== Componente Video Embed =====
-function createVideoEmbed(videoId, title = '') {
+// ===== Componente Video Embed Hero-Style =====
+function createVideoEmbed(videoId, title = 'Video') {
+    // Extraer el ID del video si viene como URL completa
+    let videoIdClean = videoId;
+    if (videoId.includes('youtube.com/watch?v=')) {
+        videoIdClean = videoId.split('v=')[1].split('&')[0];
+    } else if (videoId.includes('youtu.be/')) {
+        videoIdClean = videoId.split('youtu.be/')[1].split('?')[0];
+    }
+    
     return `
-        <div class="video-container fade-in-on-scroll" style="margin: 2rem 0;">
-            ${title ? `<h3 style="margin-bottom: 1rem;">${title}</h3>` : ''}
-            <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow-md);">
+        <div class="video-hero-container fade-in-on-scroll" style="margin: 3rem 0; width: 100%;">
+            ${title ? `<h2 style="color: var(--primary-color); margin-bottom: 2rem; text-align: center;">${title}</h2>` : ''}
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: var(--shadow-lg); max-width: 100%; margin: 0 auto;">
                 <iframe 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                    src="https://www.youtube.com/embed/${videoId}" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                    src="https://www.youtube.com/embed/${videoIdClean}?rel=0&modestbranding=1" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allowfullscreen
+                    loading="lazy">
                 </iframe>
             </div>
         </div>
