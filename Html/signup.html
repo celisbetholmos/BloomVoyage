@@ -6,7 +6,7 @@
     <title>Registro - Bloom Voyage</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../Css/main.css">
+    <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../Css/animations.css">
     <style>
         .auth-container {
@@ -75,10 +75,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            <div class="logo" onclick="window.location.href='../index.html'">Bloom Voyage</div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="../index.html">Inicio</a></li>
                     <li><a href="destinations.html">Destinos</a></li>
                     <li><a href="restaurants.html">Restaurantes</a></li>
                     <li><a href="hotels.html">Hoteles</a></li>
@@ -98,7 +98,7 @@
         </div>
         <div class="mobile-menu">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
                 <li><a href="destinations.html">Categorías</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="signup.html">Registro</a></li>
@@ -108,7 +108,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <a href="index.html" class="back-home">
+        <a href="../index.html" class="back-home">
             <i class="fas fa-arrow-left"></i> Volver al Inicio
         </a>
         
@@ -168,7 +168,7 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="../index.html">Home</a></li>
                         <li><a href="destinations.html">Destinations</a></li>
                         <li><a href="experiences.html">Experiences</a></li>
                         <li><a href="romantic-spots.html">Romantic Spots</a></li>
@@ -196,7 +196,7 @@
         </div>
     </footer>
 
-    <script src="../Js/main.js"></script>
+    <script src="../main.js"></script>
     <script src="../Js/navigation.js"></script>
     <script>
         function handleSignup(event) {
@@ -210,7 +210,7 @@
                 }
                 showNotification('¡Cuenta creada exitosamente! Redirigiendo...', 'success');
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = '../index.html';
                 }, 1500);
             } else {
                 showNotification('Por favor completa todos los campos.', 'error');
