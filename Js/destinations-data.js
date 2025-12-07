@@ -6,6 +6,29 @@
 // CARGAR TARJETAS DE DESTINOS DINÁMICAMENTE
 // =============================================
 
+// Función helper para normalizar rutas de imágenes
+// Funciona tanto localmente como en GitHub Pages
+function getImagePath(relativePath) {
+    // Si la ruta ya es absoluta o completa, devolverla tal cual
+    if (relativePath.startsWith('http://') || relativePath.startsWith('https://')) {
+        return relativePath;
+    }
+    
+    // Detectar si estamos en la raíz o en una subcarpeta
+    const currentPath = window.location.pathname;
+    const isInHtmlFolder = currentPath.includes('/Html/') || currentPath.includes('\\Html\\');
+    
+    // Si estamos en Html/, necesitamos subir un nivel (../)
+    // Si estamos en la raíz, la ruta es directa
+    if (isInHtmlFolder) {
+        // Si la ruta ya tiene ../, mantenerla; si no, agregarla
+        return relativePath.startsWith('../') ? relativePath : '../' + relativePath;
+    } else {
+        // Desde la raíz, remover ../ si existe
+        return relativePath.replace(/^\.\.\//, '');
+    }
+}
+
 const destinationsData = {
     'san-blas': {
         id: 'san-blas',
@@ -14,10 +37,10 @@ const destinationsData = {
         description: 'San Blas, también conocida como Guna Yala, es un archipiélago caribeño en Panamá compuesto por más de 365 islas e islotes de arena blanca, aguas cristalinas y palmeras, hogar autónomo del pueblo Guna que ha preservado sus tradiciones ancestrales durante siglos. Su historia se remonta a unos 500 años atrás, cuando los Guna migraron desde el Darién continental hacia estas islas para escapar de conflictos, consolidando su autonomía tras la Revolución Guna de 1925 liderada por Nele Kantule, que resultó en la creación oficial de la comarca en 1938. Este paraíso pristino ofrece una inmersión única en la naturaleza y la cultura indígena, lejos de hoteles masivos y con un enfoque en el turismo sostenible.​',
         history: 'San Blas es un archipiélago de 365 islas ubicado en el Caribe panameño, habitado por la comunidad indígena Guna. Estas islas han mantenido su cultura tradicional y belleza natural intacta durante siglos. Las islas son conocidas por sus aguas turquesas, playas de arena blanca y la hospitalidad de la comunidad Guna.',
         images: [
-            { url: './fotos/san blas.jpg', alt: 'Islas de San Blas' },
-            { url: './san blas/playa de san blas.jpg', alt: 'Playa de San Blas' },
-            { url: './san blas/agua.jpg', alt: 'Aguas cristalinas' },
-            { url: './san blas/atarde.jpg', alt: 'Atardecer en San Blas' }
+            { url: 'fotos/san blas.jpg', alt: 'Islas de San Blas' },
+            { url: 'san blas/playa de san blas.jpg', alt: 'Playa de San Blas' },
+            { url: 'san blas/agua.jpg', alt: 'Aguas cristalinas' },
+            { url: 'san blas/atarde.jpg', alt: 'Atardecer en San Blas' }
         ],
         videoId: 'https://www.youtube.com/watch?v=vb03mc_KJHs', // Reemplazar con ID real de YouTube
         contact: {
@@ -53,9 +76,9 @@ const destinationsData = {
         description: 'Boquete, en las tierras altas de Chiriquí, Panamá, es un distrito fundado en 1911 con un clima fresco de montaña (alrededor de 1.140 metros de altitud), rodeado de cafetales, ríos y el imponente Volcán Barú, que atrae a amantes de la naturaleza y el ecoturismo desde sus orígenes como ruta de la fiebre del oro en el siglo XIX.',
         history: 'Su historia se remonta a sociedades agrícolas precolombinas (300 a.C.-600 d.C.) y refugio indígena ngöbe durante la colonia española, evolucionando en el siglo XIX con colonos de áreas cercanas como Dolega y Caldera que cultivaron la zona aislada por su topografía. Hoy, es un paraíso sostenible con economía basada en café de clase mundial y turismo, ideal para escapar del calor tropical.',
         images: [
-            { url: '/fotos/boquete.jpg', alt: 'Montañas de Boquete' },
-            { url: '/fotos/coffe.jpg', alt: 'Plantación de café' },
-            { url: '/fotos/paisaje.jpg', alt: 'Paisaje montañoso' }
+            { url: 'fotos/boquete.jpg', alt: 'Montañas de Boquete' },
+            { url: 'fotos/coffe.jpg', alt: 'Plantación de café' },
+            { url: 'fotos/paisaje.jpg', alt: 'Paisaje montañoso' }
         ],
         videoId: 'https://www.youtube.com/watch?v=p9UDFq0DrvU',
         contact: {
@@ -91,9 +114,9 @@ const destinationsData = {
         description: 'Bocas del Toro es un archipiélago caribeño en el noroeste de Panamá, descubierto por Cristóbal Colón en 1502 durante su cuarto viaje, quien nombró la zona por un peñasco con forma de toro en la Isla Carenero, evolucionando de refugio pirata y plantaciones de banano en el siglo XIX a un vibrante centro turístico con influencia afrocaribeña, indígena ngäbe y mestiza.',
         history: 'Bocas del Toro es un archipiélago en el Caribe panameño, descubierto por Cristóbal Colón en 1502. La provincia fue fundada en 1903 y es conocida por su rica biodiversidad marina y su mezcla única de culturas: indígena, afrocaribeña y latina. Las islas ofrecen algunos de los mejores arrecifes de coral del Caribe y son un paraíso para los amantes del buceo y la vida marina.',
         images: [
-            { url: '/fotos/bocas del toro.jpg', alt: 'Islas de Bocas del Toro' },
-            { url: '/fotos/arecifes.jpg', alt: 'Vida marina' },
-            { url: '/fotos/boat.jpg', alt: 'Arrecifes de coral' }
+            { url: 'fotos/bocas del toro.jpg', alt: 'Islas de Bocas del Toro' },
+            { url: 'fotos/arecifes.jpg', alt: 'Vida marina' },
+            { url: 'fotos/boat.jpg', alt: 'Arrecifes de coral' }
         ],
         videoId: 'https://www.youtube.com/watch?v=3UcSul-7PN0&list=RD3UcSul-7PN0&start_radio=1',
         contact: {
@@ -129,9 +152,9 @@ const destinationsData = {
         description: 'La ciudad del amor con vistas espectaculares de la Torre Eiffel y arquitectura impresionante. Perfecta para momentos románticos inolvidables.',
         history: 'París, la capital de Francia, es una de las ciudades más icónicas del mundo. Fundada en el siglo III a.C., ha sido centro de arte, cultura y romance durante siglos. La Torre Eiffel, construida en 1889, se ha convertido en el símbolo universal de la ciudad. París es conocida por sus museos, cafés, moda y, sobre todo, por su atmósfera romántica que atrae a millones de parejas cada año.',
         images: [
-            { url: '/fotos/paris.jpg', alt: 'Torre Eiffel' },
-            { url: '/fotos/par.jpg', alt: 'Calle de París' },
-            { url: '/fotos/le.jpg', alt: 'Restaurante Le Jules Verne' }
+            { url: 'fotos/paris.jpg', alt: 'Torre Eiffel' },
+            { url: 'fotos/par.jpg', alt: 'Calle de París' },
+            { url: 'fotos/le.jpg', alt: 'Restaurante Le Jules Verne' }
         ],
         videoId: 'https://www.youtube.com/watch?v=_iZ-vMCeH9U',
         contact: {
@@ -167,9 +190,9 @@ const destinationsData = {
         description: 'Atardeceres inolvidables sobre el mar Egeo. Casas blancas y vistas panorámicas que crean el escenario perfecto para el romance.',
         history: 'Santorini, oficialmente Thira, es una isla volcánica en el mar Egeo. La isla fue devastada por una erupción volcánica masiva alrededor del 1600 a.C., que creó la caldera actual. Las casas blancas características con techos azules fueron construidas para reflejar el sol y mantener las casas frescas. Hoy, Santorini es uno de los destinos más románticos del mundo, famoso por sus atardeceres espectaculares y su arquitectura única.',
         images: [
-            { url: '/fotos/santorini.jpg', alt: 'Oia, Santorini' },
-            { url: '/fotos/atar.jpg', alt: 'Atardecer en Santorini' },
-            { url: '/fotos/casas.jpg', alt: 'Casas blancas' }
+            { url: 'fotos/santorini.jpg', alt: 'Oia, Santorini' },
+            { url: 'fotos/atar.jpg', alt: 'Atardecer en Santorini' },
+            { url: 'fotos/casas.jpg', alt: 'Casas blancas' }
         ],
         videoId: 'https://www.youtube.com/watch?v=4zAEDLwl9HI&list=RD4zAEDLwl9HI&start_radio=1',
         contact: {
@@ -205,9 +228,9 @@ const destinationsData = {
         description: 'Playas exóticas, templos antiguos y cultura única. Perfecto para relajación y aventura en un paraíso tropical.',
         history: 'Bali es una isla de Indonesia conocida por sus volcanes montañosos, arrozales, playas y arrecifes de coral. La cultura balinesa es única, con una fuerte influencia del hinduismo que se refleja en sus miles de templos y ceremonias tradicionales. La isla ha sido un destino turístico popular desde la década de 1930, atrayendo a visitantes con su belleza natural, cultura rica y hospitalidad excepcional.',
         images: [
-            { url: '/fotos/bali.jpg', alt: 'Playa de Bali' },
-            { url: '/fotos/cul.jpg', alt: 'Templo balinés' },
-            { url: '/fotos/pl bali.jpg', alt: 'Arrozales' }
+            { url: 'fotos/bali.jpg', alt: 'Playa de Bali' },
+            { url: 'fotos/cul.jpg', alt: 'Templo balinés' },
+            { url: 'fotos/pl bali.jpg', alt: 'Arrozales' }
         ],
         videoId: 'https://www.youtube.com/watch?v=BFS9n4B_2xA&t=8s',
         contact: {
@@ -243,9 +266,9 @@ const destinationsData = {
         description: 'Archipiélago paradisíaco en el Océano Índico conocido por sus aguas turquesas cristalinas, bungalows sobre el agua y playas de arena blanca perfectas. Un destino de ensueño para luna de miel y escapadas románticas.',
         history: 'Las Maldivas son una nación insular ubicada en el Océano Índico, formada por 26 atolones con más de 1,000 islas de coral. La historia de las Maldivas se remonta a más de 2,500 años, siendo un importante punto de comercio en la ruta de la seda. El país ha conservado su belleza natural pristina y se ha convertido en uno de los destinos turísticos más exclusivos del mundo.',
         images: [
-            { url: '/fotos/maldives.jpg', alt: 'Bungalow sobre el agua en Maldivas' },
-            { url: '/fotos/mal1.jpg', alt: 'Aguas turquesas' },
-            { url: '/fotos/mal2.jpg', alt: 'Atardecer en Maldivas' }
+            { url: 'fotos/maldives.jpg', alt: 'Bungalow sobre el agua en Maldivas' },
+            { url: 'fotos/mal1.jpg', alt: 'Aguas turquesas' },
+            { url: 'fotos/mal2.jpg', alt: 'Atardecer en Maldivas' }
         ],
         videoId: 'https://www.youtube.com/watch?v=W4YfDg-dKzk&list=RDW4YfDg-dKzk&start_radio=1',
         contact: {
@@ -281,9 +304,9 @@ const destinationsData = {
         description: 'Jardines botánicos espectaculares con más de 55 acres de flores de todos los colores. Un verdadero paraíso floral que cambia con las estaciones, creando un ambiente mágico y romántico perfecto para propuestas y momentos especiales.',
         history: 'Los Jardines Butchart fueron creados por Jennie Butchart a principios del siglo XX en una cantera de cemento abandonada. Con dedicación y visión, transformó el paisaje industrial en uno de los jardines más bellos del mundo. Hoy en día, los jardines atraen a más de un millón de visitantes al año y son un símbolo de transformación y belleza.',
         images: [
-            { url: '/fotos/butchart.jpg', alt: 'Butchart Gardens en primavera' },
-            { url: '/fotos/jar.jpg', alt: 'Jardines en verano' },
-            { url: '/fotos/flo.jpg', alt: 'Flores coloridas' }
+            { url: 'fotos/butchart.jpg', alt: 'Butchart Gardens en primavera' },
+            { url: 'fotos/jar.jpg', alt: 'Jardines en verano' },
+            { url: 'fotos/flo.jpg', alt: 'Flores coloridas' }
         ],
         videoId: 'https://www.youtube.com/watch?v=A6rRn9jN-bw',
         contact: {
@@ -319,9 +342,9 @@ const destinationsData = {
         description: 'El jardín de tulipanes más grande del mundo, con más de 7 millones de bulbos en floración cada primavera. Un mar de colores vibrantes que crea el escenario perfecto para una experiencia romántica y fotográfica única.',
         history: 'Keukenhof, que significa "Jardín de la Cocina" en holandés, fue creado en 1949 como una exhibición de flores. El jardín se encuentra en los terrenos del Castillo Keukenhof y se ha convertido en la atracción turística más visitada de los Países Bajos. Cada año, más de 80 variedades de tulipanes florecen creando un espectáculo visual incomparable.',
         images: [
-            { url: '/fotos/keukenthof.jpg', alt: 'Tulipanes en Keukenhof' },
-            { url: '/fotos/mir.jpg', alt: 'Campos de tulipanes' },
-            { url: '/fotos/gr.jpg', alt: 'Jardines de primavera' }
+            { url: 'fotos/keukenthof.jpg', alt: 'Tulipanes en Keukenhof' },
+            { url: 'fotos/mir.jpg', alt: 'Campos de tulipanes' },
+            { url: 'fotos/gr.jpg', alt: 'Jardines de primavera' }
         ],
         videoId: 'https://www.youtube.com/watch?v=HSEGPaRCFIA',
         contact: {
@@ -357,9 +380,9 @@ const destinationsData = {
         description: 'El pueblo más icónico de Santorini, famoso por sus atardeceres espectaculares sobre el mar Egeo. Con casas blancas encaladas, callejones estrechos y vistas panorámicas, es el lugar perfecto para propuestas románticas y momentos inolvidables.',
         history: 'Oia es un pequeño pueblo ubicado en la parte norte de Santorini. Construido en los acantilados de la caldera volcánica, el pueblo es conocido por su arquitectura cicládica tradicional con casas blancas y techos azules. Oia ha sido considerada durante décadas como uno de los mejores lugares del mundo para ver atardeceres.',
         images: [
-            { url: '/fotos/oia.jpg', alt: 'Oia al atardecer' },
-            { url: '/fotos/santorini.jpg', alt: 'Casas blancas de Oia' },
-            { url: '/fotos/atar.jpg', alt: 'Vista panorámica de Oia' }
+            { url: 'fotos/oia.jpg', alt: 'Oia al atardecer' },
+            { url: 'fotos/santorini.jpg', alt: 'Casas blancas de Oia' },
+            { url: 'fotos/atar.jpg', alt: 'Vista panorámica de Oia' }
         ],
         videoId: 'https://www.youtube.com/watch?v=_bTDvlVWCkc',
         contact: {
@@ -395,9 +418,9 @@ const destinationsData = {
         description: 'Restaurante gastronómico ubicado en la Torre Eiffel con vistas panorámicas de París. Una experiencia culinaria única que combina la cocina francesa de alta calidad con una vista espectacular de la ciudad del amor.',
         history: 'Le Jules Verne abrió sus puertas en 1983 en el segundo nivel de la Torre Eiffel. El restaurante lleva el nombre del famoso escritor francés Jules Verne y ofrece una experiencia gastronómica única a 125 metros de altura sobre París. El restaurante ha sido galardonado con una estrella Michelin y es considerado uno de los restaurantes más exclusivos de París.',
         images: [
-            { url: '/fotos/le.jpg', alt: 'Vista desde Le Jules Verne' },
-            { url: '/fotos/paris.jpg', alt: 'Torre Eiffel y París' },
-            { url: '/fotos/jul.jpg', alt: 'Interior del restaurante' }
+            { url: 'fotos/le.jpg', alt: 'Vista desde Le Jules Verne' },
+            { url: 'fotos/paris.jpg', alt: 'Torre Eiffel y París' },
+            { url: 'fotos/jul.jpg', alt: 'Interior del restaurante' }
         ],
         videoId: 'https://www.youtube.com/watch?v=6EvOPdX2PBQ',
         contact: {
@@ -433,9 +456,9 @@ const destinationsData = {
         description: 'Restaurante con vistas de 360° de Londres desde el corazón de la ciudad. Ubicado en el piso 35, ofrece una experiencia gastronómica moderna con panoramas espectaculares del skyline londinense.',
         history: 'Sky Garden es un espacio público único ubicado en el techo de un rascacielos en el corazón financiero de Londres. Abierto en 2015, combina jardines públicos con restaurantes y bares de alta gama. El espacio ofrece vistas sin obstáculos de algunos de los monumentos más icónicos de Londres, incluyendo el Tower Bridge y el Támesis.',
         images: [
-            { url: '/fotos/sky.jpg', alt: 'Vista desde Sky Garden' },
-            { url: '/fotos/sk.jpg', alt: 'Interior del Sky Garden' },
-            { url: '/fotos/gar.jpg', alt: 'Vista de Londres' }
+            { url: 'fotos/sky.jpg', alt: 'Vista desde Sky Garden' },
+            { url: 'fotos/sk.jpg', alt: 'Interior del Sky Garden' },
+            { url: 'fotos/gar.jpg', alt: 'Vista de Londres' }
         ],
         videoId: 'https://www.youtube.com/watch?v=ThlnzF7oigY',
         contact: {
@@ -471,9 +494,9 @@ const destinationsData = {
         description: 'Restaurante frente al mar con mariscos frescos y ambiente relajado. Perfecto para cenas románticas al atardecer con vistas espectaculares del Caribe panameño.',
         history: 'Restaurante Playa Blanca se encuentra en una de las islas más hermosas de San Blas. Fundado por una familia local, ofrece mariscos frescos capturados diariamente y cocina tradicional panameña con toques caribeños. El restaurante ha sido un favorito entre los visitantes que buscan una experiencia gastronómica auténtica en un ambiente paradisíaco.',
         images: [
-            { url: '/fotos/playa blanca.jpg', alt: 'Restaurante Playa Blanca' },
-            { url: '/fotos/san blas.jpg', alt: 'Vista del mar' },
-            { url: '/fotos/atar.jpg', alt: 'Atardecer' }
+            { url: 'fotos/playa blanca.jpg', alt: 'Restaurante Playa Blanca' },
+            { url: 'fotos/san blas.jpg', alt: 'Vista del mar' },
+            { url: 'fotos/atar.jpg', alt: 'Atardecer' }
         ],
         videoId: 'https://www.youtube.com/watch?v=MjqM3b2MeVU',
         contact: {
@@ -509,10 +532,10 @@ const destinationsData = {
         description: 'Restaurante con terraza con vistas al atardecer más espectacular del mundo. Cocina mediterránea de autor en un ambiente sofisticado y romántico.',
         history: 'Rooftop Oia es uno de los restaurantes más exclusivos de Santorini, ubicado en el corazón del pueblo de Oia. Con más de 20 años de experiencia, combina la cocina mediterránea tradicional con técnicas modernas. El restaurante ofrece vistas panorámicas de la caldera volcánica y es conocido por ser uno de los mejores lugares para ver el atardecer mientras se disfruta de una cena excepcional.',
         images: [
-            { url: '/fotos/rooftop.jpg', alt: 'Terraza de Rooftop Oia' },
-            { url: '/fotos/oia.jpg', alt: 'Vista de Oia' },
-            { url: '/fotos/santorini.jpg', alt: 'Atardecer en Santorini' },
-            { url: '/fotos/atar.jpg', alt: 'Atardecer espectacular' }
+            { url: 'fotos/rooftop.jpg', alt: 'Terraza de Rooftop Oia' },
+            { url: 'fotos/oia.jpg', alt: 'Vista de Oia' },
+            { url: 'fotos/santorini.jpg', alt: 'Atardecer en Santorini' },
+            { url: 'fotos/atar.jpg', alt: 'Atardecer espectacular' }
         ],
         videoId: 'https://www.youtube.com/watch?v=ehHxqrUjYDE',
         contact: {
@@ -548,9 +571,9 @@ const destinationsData = {
         description: 'Cafetería y restaurante en una plantación de café con vistas a las montañas. Menú con ingredientes locales frescos y el mejor café Geisha de Panamá.',
         history: 'Café de Altura se encuentra en una de las plantaciones de café más prestigiosas de Boquete. Fundado en 2010, el restaurante combina la tradición cafetalera panameña con una experiencia gastronómica única. El lugar ofrece tours de la plantación y degustaciones del famoso café Geisha, considerado uno de los mejores del mundo.',
         images: [
-            { url: '/fotos/coffe.jpg', alt: 'Café de Altura' },
-            { url: '/fotos/boquete.jpg', alt: 'Vista de las montañas' },
-            { url: '/fotos/paisaje.jpg', alt: 'Plantación de café' }
+            { url: 'fotos/coffe.jpg', alt: 'Café de Altura' },
+            { url: 'fotos/boquete.jpg', alt: 'Vista de las montañas' },
+            { url: 'fotos/paisaje.jpg', alt: 'Plantación de café' }
         ],
         videoId: 'https://www.youtube.com/watch?v=tAsPpFoHxG4',
         contact: {
@@ -586,9 +609,9 @@ const destinationsData = {
         description: 'Restaurante tradicional balinés con cocina auténtica y ambiente acogedor. Perfecto para experimentar la cultura local y sabores únicos de Indonesia.',
         history: 'Warung Nusa es un restaurante familiar que ha servido cocina balinesa tradicional por más de tres generaciones. El nombre "Warung" significa pequeño restaurante local en indonesio. El lugar mantiene las recetas tradicionales pasadas de generación en generación, ofreciendo una experiencia auténtica de la gastronomía balinesa en un ambiente acogedor y familiar.',
         images: [
-            { url: '/fotos/warung.jpg', alt: 'Warung Nusa' },
-            { url: '/fotos/bali.jpg', alt: 'Ambiente balinés' },
-            { url: '/fotos/pl bali.jpg', alt: 'Comida balinesa' }
+            { url: 'fotos/warung.jpg', alt: 'Warung Nusa' },
+            { url: 'fotos/bali.jpg', alt: 'Ambiente balinés' },
+            { url: 'fotos/pl bali.jpg', alt: 'Comida balinesa' }
         ],
         videoId: 'https://www.youtube.com/watch?v=jvpS5-eoEUM',
         contact: {
@@ -624,9 +647,9 @@ const destinationsData = {
         description: 'Hotel cueva con vistas al mar Egeo y atardeceres espectaculares. Arquitectura única y lujo discreto en el corazón de Santorini.',
         history: 'Santorini Cave Hotel es un hotel boutique que ha transformado las tradicionales cuevas de Santorini en suites de lujo. Construido respetando la arquitectura cicládica tradicional, el hotel combina el encanto histórico con comodidades modernas. Cada suite tiene vistas privadas a la caldera volcánica y ofrece una experiencia única de alojamiento en Santorini.',
         images: [
-            { url: '/fotos/casas.jpg', alt: 'Santorini Cave Hotel' },
-            { url: '/fotos/santorini.jpg', alt: 'Vista de la caldera' },
-            { url: '/fotos/oia.jpg', alt: 'Arquitectura cicládica' }
+            { url: 'fotos/casas.jpg', alt: 'Santorini Cave Hotel' },
+            { url: 'fotos/santorini.jpg', alt: 'Vista de la caldera' },
+            { url: 'fotos/oia.jpg', alt: 'Arquitectura cicládica' }
         ],
         videoId: 'https://www.youtube.com/watch?v=SO0FJ_BHYZ8',
         contact: {
@@ -662,9 +685,9 @@ const destinationsData = {
         description: 'Boutique hotel en el corazón de París con estilo parisino elegante. Cerca de los principales atractivos y con un ambiente íntimo y sofisticado.',
         history: 'Hotel Le Marais se encuentra en el histórico barrio de Le Marais, uno de los distritos más antiguos y encantadores de París. El hotel ocupa un edificio del siglo XVII cuidadosamente restaurado, manteniendo su carácter histórico mientras ofrece todas las comodidades modernas. El barrio es conocido por sus galerías de arte, boutiques de moda y vida cultural vibrante.',
         images: [
-            { url: '/fotos/par.jpg', alt: 'Hotel Le Marais' },
-            { url: '/fotos/paris.jpg', alt: 'Barrio Le Marais' },
-            { url: '/fotos/le.jpg', alt: 'Interior del hotel' }
+            { url: 'fotos/par.jpg', alt: 'Hotel Le Marais' },
+            { url: 'fotos/paris.jpg', alt: 'Barrio Le Marais' },
+            { url: 'fotos/le.jpg', alt: 'Interior del hotel' }
         ],
         videoId: 'https://www.youtube.com/watch?v=4-Zv4mwvrtw',
         contact: {
@@ -700,9 +723,9 @@ const destinationsData = {
         description: 'Eco-lodge en las montañas con vistas panorámicas y ambiente tranquilo. Perfecto para relajación y conexión con la naturaleza.',
         history: 'Boquete Mountain Lodge fue fundado en 2005 como un eco-lodge comprometido con la sostenibilidad y el turismo responsable. Ubicado en una finca de 50 hectáreas, el lodge ofrece una experiencia única de inmersión en la naturaleza panameña. El lugar combina comodidades modernas con prácticas ecológicas, incluyendo energía solar y agricultura orgánica.',
         images: [
-            { url: '/fotos/paisaje.jpg', alt: 'Boquete Mountain Lodge' },
-            { url: '/fotos/boquete.jpg', alt: 'Vistas de las montañas' },
-            { url: '/fotos/hiking.jpg', alt: 'Senderos naturales' }
+            { url: 'fotos/paisaje.jpg', alt: 'Boquete Mountain Lodge' },
+            { url: 'fotos/boquete.jpg', alt: 'Vistas de las montañas' },
+            { url: 'fotos/hiking.jpg', alt: 'Senderos naturales' }
         ],
         videoId: 'https://www.youtube.com/watch?v=dMSPWf1G6Xg',
         contact: {
@@ -738,9 +761,9 @@ const destinationsData = {
         description: 'Resort ecológico en una isla privada con playas de arena blanca y aguas cristalinas. Experiencia única de lujo sostenible en el Caribe panameño.',
         history: 'San Blas Island Resort fue establecido en 2010 como un proyecto de turismo sostenible en colaboración con la comunidad Guna. El resort opera bajo principios ecológicos estrictos, respetando el medio ambiente y la cultura local. Ofrece una experiencia de lujo discreto en una isla privada, combinando comodidades modernas con autenticidad cultural.',
         images: [
-            { url: '/fotos/san blas.jpg', alt: 'San Blas Island Resort' },
-            { url: '/fotos/atar.jpg', alt: 'Playa privada' },
-            { url: '/fotos/arecifes.jpg', alt: 'Aguas cristalinas' }
+            { url: 'fotos/san blas.jpg', alt: 'San Blas Island Resort' },
+            { url: 'fotos/atar.jpg', alt: 'Playa privada' },
+            { url: 'fotos/arecifes.jpg', alt: 'Aguas cristalinas' }
         ],
         videoId: 'https://www.youtube.com/watch?v=zUNIFccNZOc',
         contact: {
@@ -776,9 +799,9 @@ const destinationsData = {
         description: 'Villa privada con piscina infinita y vistas a los arrozales. Experiencia auténtica balinesa en el corazón cultural de Bali.',
         history: 'Bali Ubud Villa es una villa privada construida en 2015, diseñada para ofrecer una experiencia auténtica de la vida balinesa. Ubicada en Ubud, el corazón cultural de Bali, la villa combina arquitectura tradicional balinesa con comodidades modernas. El lugar está rodeado de arrozales en terrazas y ofrece una experiencia de inmersión en la cultura y naturaleza balinesa.',
         images: [
-            { url: '/fotos/pl bali.jpg', alt: 'Bali Ubud Villa' },
-            { url: '/fotos/bali.jpg', alt: 'Vista de arrozales' },
-            { url: '/fotos/paisaje.jpg', alt: 'Piscina infinita' }
+            { url: 'fotos/pl bali.jpg', alt: 'Bali Ubud Villa' },
+            { url: 'fotos/bali.jpg', alt: 'Vista de arrozales' },
+            { url: 'fotos/paisaje.jpg', alt: 'Piscina infinita' }
         ],
         videoId: 'https://www.youtube.com/watch?v=Wupf8iikIGE',
         contact: {
@@ -809,13 +832,31 @@ const destinationsData = {
     }
 };
 
+// Función para normalizar rutas de imágenes en un destino
+function normalizeDestinationImages(destination) {
+    if (!destination) return null;
+    
+    const normalized = { ...destination };
+    
+    // Normalizar rutas de imágenes
+    if (normalized.images && Array.isArray(normalized.images)) {
+        normalized.images = normalized.images.map(img => ({
+            ...img,
+            url: getImagePath(img.url)
+        }));
+    }
+    
+    return normalized;
+}
+
 // Función para obtener un destino por ID
 function getDestinationById(id) {
-    return destinationsData[id] || null;
+    const destination = destinationsData[id] || null;
+    return normalizeDestinationImages(destination);
 }
 
 // Función para obtener todos los destinos
 function getAllDestinations() {
-    return Object.values(destinationsData);
+    return Object.values(destinationsData).map(dest => normalizeDestinationImages(dest));
 }
 
