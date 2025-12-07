@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romantic Spots - BloomVoyage</title>
+    <title>Lugares Románticos - Bloom Voyage</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../Css/main.css">
@@ -49,47 +49,51 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="logo" onclick="window.location.href='index.html'">BloomVoyage</div>
+            <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="experiences.html">Experiences</a></li>
-                    <li><a href="romantic-spots.html">Romantic Spots</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="destinations.html">Destinos</a></li>
+                    <li><a href="experiences.html">Experiencias</a></li>
+                    <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    <li><a href="about.html">Sobre nosotros</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
+            
             <div class="header-buttons">
                 <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
-                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Registro</button>
             </div>
+            
             <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
+        
+        <!-- Mobile Menu -->
         <div class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="destinations.html">Destinations</a></li>
-                <li><a href="experiences.html">Experiences</a></li>
-                <li><a href="romantic-spots.html">Romantic Spots</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="restaurants.html">Restaurantes</a></li>
+                <li><a href="hotels.html">Hoteles</a></li>
+                <li><a href="experiences.html">Experiencias</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Registro</a></li>
             </ul>
-            <div class="mobile-menu-buttons">
-                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
-                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
-            </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
         <div class="romantic-hero fade-in-on-scroll">
-            <h1><i class="fas fa-heart"></i> Romantic Spots</h1>
+            <h1><i class="fas fa-heart"></i> Lugares Románticos</h1>
             <p style="font-size: 1.25rem;">Lugares mágicos para momentos inolvidables</p>
         </div>
 
@@ -97,63 +101,63 @@
             <div class="container">
                 <!-- Sunset Viewpoints -->
                 <div class="section-title fade-in-on-scroll">
-                    <h2><i class="fas fa-sun"></i> Sunset Viewpoints</h2>
+                    <h2><i class="fas fa-sun"></i> Miradores de Atardecer</h2>
                     <p>Los mejores lugares para ver atardeceres románticos</p>
                 </div>
 
                 <div class="card-grid">
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=600&q=80" alt="Santorini Sunset" class="card-image">
+                        <img src="/fotos/oia.jpg" alt="Santorini Sunset" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Oia, Santorini</h3>
-                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Greece</p>
+                            <p class="card-location"><i class="fas fa-map-marker-alt"></i> Grecia</p>
                             <p>Vistas panorámicas del atardecer sobre el mar Egeo. Perfecto para propuestas.</p>
                             <div class="spot-info">
                                 <div class="info-item"><i class="fas fa-phone"></i> +30 2286 071156</div>
-                                <div class="info-item"><i class="fas fa-clock"></i> Best: 7-8 PM</div>
+                                <div class="info-item"><i class="fas fa-clock"></i> Mejor: 7-8 PM</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=oia-santorini'">Ver Más</button>
                         </div>
                     </div>
 
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Maldives Sunset" class="card-image">
+                        <img src="/fotos/maldives.jpg" alt="Maldives Sunset" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Maldives Overwater Villa</h3>
                             <p class="card-location"><i class="fas fa-map-marker-alt"></i> Maldives</p>
                             <p>Atardeceres desde tu bungalow privado sobre el agua cristalina.</p>
                             <div class="spot-info">
                                 <div class="info-item"><i class="fas fa-phone"></i> +960 664-0000</div>
-                                <div class="info-item"><i class="fas fa-clock"></i> Best: 6-7 PM</div>
+                                <div class="info-item"><i class="fas fa-clock"></i> Mejor: 6-7 PM</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=maldives'">Ver Más</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Garden Proposals -->
                 <div class="section-title fade-in-on-scroll" style="margin-top: 4rem;">
-                    <h2><i class="fas fa-seedling"></i> Garden Proposals</h2>
+                    <h2><i class="fas fa-seedling"></i> Jardines para Propuestas</h2>
                     <p>Jardines románticos para pedidas de mano especiales</p>
                 </div>
 
                 <div class="card-grid">
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80" alt="Garden Proposal" class="card-image">
+                        <img src="/fotos/butchart.jpg" alt="Garden Proposal" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Butchart Gardens</h3>
                             <p class="card-location"><i class="fas fa-map-marker-alt"></i> Victoria, Canada</p>
                             <p>Jardines botánicos espectaculares con flores de todos los colores. Ambiente mágico.</p>
                             <div class="spot-info">
                                 <div class="info-item"><i class="fas fa-phone"></i> +1 250-652-4422</div>
-                                <div class="info-item"><i class="fas fa-clock"></i> Open: 9AM-5PM</div>
+                                <div class="info-item"><i class="fas fa-clock"></i> Abierto: 9AM-5PM</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=butchart-gardens'">Ver Más</button>
                         </div>
                     </div>
 
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1518568814500-bf0f88e8c137?w=600&q=80" alt="Rose Garden" class="card-image">
+                        <img src="/fotos/keukenthof.jpg" alt="Rose Garden" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Keukenhof Gardens</h3>
                             <p class="card-location"><i class="fas fa-map-marker-alt"></i> Netherlands</p>
@@ -162,67 +166,67 @@
                                 <div class="info-item"><i class="fas fa-phone"></i> +31 252 465 555</div>
                                 <div class="info-item"><i class="fas fa-clock"></i> Mar-May: 8AM-7:30PM</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=keukenhof-gardens'">Ver Más</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Beach Romantic Places -->
                 <div class="section-title fade-in-on-scroll" style="margin-top: 4rem;">
-                    <h2><i class="fas fa-umbrella-beach"></i> Beach Romantic Places</h2>
+                    <h2><i class="fas fa-umbrella-beach"></i> Playas Románticas</h2>
                     <p>Playas privadas y románticas para momentos especiales</p>
                 </div>
 
                 <div class="card-grid">
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="Private Beach" class="card-image">
+                        <img src="/fotos/san blas.jpg" alt="Private Beach" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">San Blas Private Island</h3>
                             <p class="card-location"><i class="fas fa-map-marker-alt"></i> Panama</p>
                             <p>Islas privadas con playas de arena blanca. Perfecto para cenas románticas bajo las estrellas.</p>
                             <div class="spot-info">
                                 <div class="info-item"><i class="fas fa-phone"></i> +507 6123-4567</div>
-                                <div class="info-item"><i class="fas fa-utensils"></i> Private dining available</div>
+                                <div class="info-item"><i class="fas fa-utensils"></i> Cenas privadas disponibles</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=san-blas'">Ver Más</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Rooftop Dinner Places -->
                 <div class="section-title fade-in-on-scroll" style="margin-top: 4rem;">
-                    <h2><i class="fas fa-city"></i> Rooftop Dinner Places</h2>
+                    <h2><i class="fas fa-city"></i> Restaurantes con Vistas</h2>
                     <p>Restaurantes con vistas increíbles para cenas románticas</p>
                 </div>
 
                 <div class="card-grid">
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="Rooftop Paris" class="card-image">
+                        <img src="/fotos/le.jpg" alt="Rooftop Paris" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Le Jules Verne</h3>
                             <p class="card-location"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
                             <p>Restaurante en la Torre Eiffel con vistas panorámicas de París. Experiencia única.</p>
                             <div class="spot-info">
                                 <div class="info-item"><i class="fas fa-phone"></i> +33 1 45 55 61 44</div>
-                                <div class="info-item"><i class="fas fa-utensils"></i> Fine dining</div>
-                                <div class="info-item"><i class="fas fa-euro-sign"></i> €200-300 per person</div>
+                                <div class="info-item"><i class="fas fa-utensils"></i> Alta cocina</div>
+                                <div class="info-item"><i class="fas fa-euro-sign"></i> €200-300 por persona</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=le-jules-verne'">Ver Más</button>
                         </div>
                     </div>
 
                     <div class="card fade-in-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80" alt="Rooftop Restaurant" class="card-image">
+                        <img src="/fotos/sky.jpg" alt="Rooftop Restaurant" class="card-image">
                         <div class="card-content">
                             <h3 class="card-title">Sky Garden Restaurant</h3>
                             <p class="card-location"><i class="fas fa-map-marker-alt"></i> London, UK</p>
                             <p>Vistas de 360° de Londres desde el corazón de la ciudad. Ambiente sofisticado.</p>
                             <div class="spot-info">
                                 <div class="info-item"><i class="fas fa-phone"></i> +44 20 7337 2344</div>
-                                <div class="info-item"><i class="fas fa-utensils"></i> Modern European</div>
-                                <div class="info-item"><i class="fas fa-pound-sign"></i> £50-100 per person</div>
+                                <div class="info-item"><i class="fas fa-utensils"></i> Cocina moderna europea</div>
+                                <div class="info-item"><i class="fas fa-pound-sign"></i> £50-100 por persona</div>
                             </div>
-                            <button class="btn btn-primary card-button">View Details</button>
+                            <button class="btn btn-primary card-button" onclick="window.location.href='destination-detail.html?id=sky-garden'">Ver Más</button>
                         </div>
                     </div>
                 </div>
@@ -235,7 +239,7 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>BloomVoyage</h3>
+                    <h3>Bloom Voyage</h3>
                     <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -245,32 +249,33 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3>Enlaces Rápidos</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="destinations.html">Destinations</a></li>
-                        <li><a href="experiences.html">Experiences</a></li>
-                        <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="destinations.html">Destinos</a></li>
+                        <li><a href="restaurants.html">Restaurantes</a></li>
+                        <li><a href="hotels.html">Hoteles</a></li>
+                        <li><a href="romantic-spots.html">Lugares Románticos</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Support</h3>
+                    <h3>Soporte</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="tips.html">Consejos de Viaje</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact Info</h3>
+                    <h3>Información de Contacto</h3>
                     <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
                     <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+                    <p><i class="fas fa-clock"></i> Lun-Vie: 9AM - 6PM</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 BloomVoyage – All rights reserved.</p>
+                <p>&copy; 2025 Bloom Voyage – Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

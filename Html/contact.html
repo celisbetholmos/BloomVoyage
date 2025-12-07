@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - BloomVoyage</title>
+    <title>Contacto - Bloom Voyage</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../Css/main.css">
@@ -51,48 +51,52 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="logo" onclick="window.location.href='index.html'">BloomVoyage</div>
+            <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="experiences.html">Experiences</a></li>
-                    <li><a href="romantic-spots.html">Romantic Spots</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="destinations.html">Destinos</a></li>
+                    <li><a href="experiences.html">Experiencias</a></li>
+                    <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="romantic-spots.html">Lugares Románticos</a></li>
+                    <li><a href="about.html">Sobre nosotros</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
+            
             <div class="header-buttons">
                 <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
-                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Registro</button>
             </div>
+            
             <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
+        
+        <!-- Mobile Menu -->
         <div class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="destinations.html">Destinations</a></li>
-                <li><a href="experiences.html">Experiences</a></li>
-                <li><a href="romantic-spots.html">Romantic Spots</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="restaurants.html">Restaurantes</a></li>
+                <li><a href="hotels.html">Hoteles</a></li>
+                <li><a href="experiences.html">Experiencias</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Registro</a></li>
             </ul>
-            <div class="mobile-menu-buttons">
-                <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
-                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Sign Up</button>
-            </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main-content">
         <div class="contact-hero fade-in-on-scroll">
-            <h1>Get in Touch</h1>
-            <p style="font-size: 1.25rem;">We'd love to hear from you</p>
+            <h1>Ponerse en contacto</h1>
+            <p style="font-size: 1.25rem;">Nos encantaría saber de ti</p>
         </div>
 
         <section class="section">
@@ -101,28 +105,28 @@
                     <div class="contact-card fade-in-on-scroll">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p>info@bloomvoyage.com</p>
-                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">We respond within 24 hours</p>
+                        <p>bloomvoyage@gmail.com</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Respondemos las 24 horas</p>
                     </div>
                     <div class="contact-card fade-in-on-scroll">
                         <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>+1 (555) 123-4567</p>
-                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Mon-Fri: 9AM - 6PM EST</p>
+                        <h3>Teléfono</h3>
+                        <p>(+507) 6790-5632</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Lun-Vie: 9AM - 6PM EST</p>
                     </div>
                     <div class="contact-card fade-in-on-scroll">
                         <i class="fas fa-clock"></i>
-                        <h3>Response Time</h3>
-                        <p>Within 24 hours</p>
-                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">We aim to respond quickly</p>
+                        <h3>Tiempo de Respuesta</h3>
+                        <p>Las 24 horas</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Responderemos rápidamente</p>
                     </div>
                 </div>
 
                 <div class="form-container fade-in-on-scroll" style="margin-top: 3rem;">
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Send us a Message</h2>
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Envíanos un mensaje</h2>
                     <form id="contact-form" onsubmit="handleContactSubmit(event)">
                         <div class="form-group">
-                            <label for="name">Name *</label>
+                            <label for="name">Nombre *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
@@ -130,19 +134,19 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject *</label>
+                            <label for="subject">Asunto *</label>
                             <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message *</label>
+                            <label for="message">Mensaje *</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar mensaje</button>
                     </form>
                 </div>
 
                 <div style="text-align: center; margin-top: 3rem;">
-                    <h3 style="margin-bottom: 1rem;">Follow Us</h3>
+                    <h3 style="margin-bottom: 1rem;">Síguenos</h3>
                     <div class="social-links" style="justify-content: center;">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -159,7 +163,7 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>BloomVoyage</h3>
+                    <h3>Bloom Voyage</h3>
                     <p>Tu guía de viajes estética para descubrir lugares hermosos y románticos alrededor del mundo.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -169,32 +173,33 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3>Enlaces Rápidos</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="destinations.html">Destinations</a></li>
-                        <li><a href="experiences.html">Experiences</a></li>
-                        <li><a href="romantic-spots.html">Romantic Spots</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="destinations.html">Destinos</a></li>
+                        <li><a href="restaurants.html">Restaurantes</a></li>
+                        <li><a href="hotels.html">Hoteles</a></li>
+                        <li><a href="romantic-spots.html">Lugares Románticos</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Support</h3>
+                    <h3>Soporte</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="tips.html">Consejos de Viaje</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> info@bloomvoyage.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+                    <h3>Información de Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> bloomvoyage@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> (+507) 6790-5632</p>
+                    <p><i class="fas fa-clock"></i> Lun-Vie: 9AM - 6PM</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 BloomVoyage – All rights reserved.</p>
+                <p>&copy; 2025 Bloom Voyage – Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -205,10 +210,10 @@
         function handleContactSubmit(event) {
             event.preventDefault();
             if (validateForm('contact-form')) {
-                showNotification('Thank you! Your message has been sent. We will respond within 24 hours.', 'success');
+                showNotification('¡Gracias! Tu mensaje ha sido enviado. Responderemos dentro de 24 horas.', 'success');
                 document.getElementById('contact-form').reset();
             } else {
-                showNotification('Please fill in all required fields.', 'error');
+                showNotification('Por favor, completa todos los campos requeridos.', 'error');
             }
         }
     </script>

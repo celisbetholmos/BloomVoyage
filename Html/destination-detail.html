@@ -117,30 +117,40 @@
     <header class="header">
         <div class="header-container">
             <div class="logo" onclick="window.location.href='index.html'">Bloom Voyage</div>
+            
             <nav>
                 <ul class="nav-menu">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="destinations.html">Destinos</a></li>
-                    <li><a href="restaurants.html">Restaurantes</a></li>
+                    <li><a href="experiences.html">Experiencias</a></li>
                     <li><a href="hotels.html">Hoteles</a></li>
+                    <li><a href="restaurants.html">Restaurantes</a></li>
                     <li><a href="romantic-spots.html">Lugares Románticos</a></li>
-                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="about.html">Sobre nosotros</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
+            
             <div class="header-buttons">
                 <button class="btn btn-outline" onclick="window.location.href='login.html'">Login</button>
                 <button class="btn btn-primary" onclick="window.location.href='signup.html'">Registro</button>
             </div>
+            
             <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
+        
+        <!-- Mobile Menu -->
         <div class="mobile-menu">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="destinations.html">Categorías</a></li>
+                <li><a href="restaurants.html">Restaurantes</a></li>
+                <li><a href="hotels.html">Hoteles</a></li>
+                <li><a href="experiences.html">Experiencias</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="signup.html">Registro</a></li>
             </ul>
@@ -208,110 +218,203 @@
         </div>
     </footer>
 
+    <script src="../Js/destinations-data.js"></script>
+    <script src="../Js/components.js"></script>
     <script src="../Js/main.js"></script>
     <script src="../Js/navigation.js"></script>
-    <script src="../Js/components.js"></script>
-    <script src="../Js/destinations-data.js"></script>
     <script>
         // Cargar detalles del destino
         function loadDestinationDetail() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const destinationId = urlParams.get('id');
-            
-            if (!destinationId) {
-                document.getElementById('destination-detail-container').innerHTML = `
-                    <div style="text-align: center; padding: 4rem 2rem;">
-                        <h2>Destino no encontrado</h2>
-                        <p>El destino que buscas no existe.</p>
-                        <a href="destinations.html" class="btn btn-primary" style="margin-top: 1rem;">Volver a Destinos</a>
-                    </div>
-                `;
-                return;
-            }
-            
-            const destination = getDestinationById(destinationId);
-            
-            if (!destination) {
-                document.getElementById('destination-detail-container').innerHTML = `
-                    <div style="text-align: center; padding: 4rem 2rem;">
-                        <h2>Destino no encontrado</h2>
-                        <p>El destino que buscas no existe.</p>
-                        <a href="destinations.html" class="btn btn-primary" style="margin-top: 1rem;">Volver a Destinos</a>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Construir HTML del detalle
-            let html = `
-                <div class="detail-hero">
-                    <img src="${destination.images[0].url}" alt="${destination.name}">
-                    <div class="detail-hero-overlay">
-                        <div class="detail-hero-content">
-                            <h1>${destination.name}</h1>
-                            <p style="font-size: 1.25rem;"><i class="fas fa-map-marker-alt"></i> ${destination.location}</p>
-                        </div>
-                    </div>
-                </div>
+            try {
+                // Verificar que las funciones estén disponibles
+                if (typeof getDestinationById === 'undefined') {
+                    console.error('getDestinationById no está definida');
+                    setTimeout(loadDestinationDetail, 100);
+                    return;
+                }
+                if (typeof createVideoEmbed === 'undefined') {
+                    console.error('createVideoEmbed no está definida');
+                    setTimeout(loadDestinationDetail, 100);
+                    return;
+                }
+                if (typeof createImageGallery === 'undefined') {
+                    console.error('createImageGallery no está definida');
+                    setTimeout(loadDestinationDetail, 100);
+                    return;
+                }
+                if (typeof createGoogleMap === 'undefined') {
+                    console.error('createGoogleMap no está definida');
+                    setTimeout(loadDestinationDetail, 100);
+                    return;
+                }
                 
-                <div class="detail-content">
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h4>Mejor Época</h4>
-                            <p>${destination.bestTime}</p>
+                const urlParams = new URLSearchParams(window.location.search);
+                const destinationId = urlParams.get('id');
+                
+                if (!destinationId) {
+                    document.getElementById('destination-detail-container').innerHTML = `
+                        <div style="text-align: center; padding: 4rem 2rem;">
+                            <h2>Destino no encontrado</h2>
+                            <p>El destino que buscas no existe.</p>
+                            <a href="destinations.html" class="btn btn-primary" style="margin-top: 1rem;">Volver a Destinos</a>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-dollar-sign"></i>
-                            <h4>Rango de Precio</h4>
-                            <p>${destination.priceRange}</p>
+                    `;
+                    return;
+                }
+                
+                const destination = getDestinationById(destinationId);
+                
+                if (!destination) {
+                    document.getElementById('destination-detail-container').innerHTML = `
+                        <div style="text-align: center; padding: 4rem 2rem;">
+                            <h2>Destino no encontrado</h2>
+                            <p>El destino que buscas no existe.</p>
+                            <a href="destinations.html" class="btn btn-primary" style="margin-top: 1rem;">Volver a Destinos</a>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-star"></i>
-                            <h4>Calificación</h4>
-                            <p>4.8/5</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin: 2rem 0;">
-                        <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Descripción</h2>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);">
-                            ${destination.description}
-                        </p>
-                    </div>
-                    
-                    <div class="history-section fade-in-on-scroll">
-                        <h2 style="color: var(--primary-color); margin-bottom: 1rem;"><i class="fas fa-book"></i> Historia del Lugar</h2>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);">
-                            ${destination.history}
-                        </p>
-                    </div>
-                    
-                    ${createVideoEmbed(destination.videoId, 'Video del Destino')}
-                    
-                    ${createImageGallery(destination.images, 'Galería de Imágenes')}
-                    
-                    <div class="contact-section fade-in-on-scroll">
-                        <h3><i class="fas fa-address-book"></i> Información de Contacto</h3>
-                        <div class="contact-info">
-                            ${destination.contact.phone ? `<p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> ${destination.contact.phone}</p>` : ''}
-                            ${destination.contact.website ? `<p><i class="fas fa-globe"></i> <strong>Sitio Web:</strong> <a href="${destination.contact.website}" target="_blank">${destination.contact.website}</a></p>` : ''}
-                            ${destination.contact.social ? `<p><i class="fab fa-instagram"></i> <strong>Instagram:</strong> ${destination.contact.social}</p>` : ''}
+                    `;
+                    return;
+                }
+                
+                // Construir HTML del detalle
+                let html = `
+                    <div class="detail-hero">
+                        <img src="${destination.images[0].url}" alt="${destination.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="detail-hero-overlay">
+                            <div class="detail-hero-content">
+                                <h1>${destination.name}</h1>
+                                <p style="font-size: 1.25rem;"><i class="fas fa-map-marker-alt"></i> ${destination.location}</p>
+                            </div>
                         </div>
                     </div>
                     
-                    ${createGoogleMap(destination.coordinates.lat, destination.coordinates.lng, destination.name)}
-                </div>
-            `;
-            
-            document.getElementById('destination-detail-container').innerHTML = html;
+                    <div class="detail-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h4>Mejor Época</h4>
+                                <p>${destination.bestTime || 'Todo el año'}</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <h4>Rango de Precio</h4>
+                                <p>${destination.priceRange || 'Consultar'}</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-star"></i>
+                                <h4>Calificación</h4>
+                                <p>4.8/5</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 2rem 0;">
+                            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Descripción</h2>
+                            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);">
+                                ${destination.description || 'Descripción no disponible.'}
+                            </p>
+                        </div>
+                        
+                        ${destination.history ? `
+                        <div class="history-section fade-in-on-scroll">
+                            <h2 style="color: var(--primary-color); margin-bottom: 1rem;"><i class="fas fa-book"></i> Historia del Lugar</h2>
+                            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);">
+                                ${destination.history}
+                            </p>
+                        </div>
+                        ` : ''}
+                        
+                        ${destination.reasonsToVisit && destination.reasonsToVisit.length > 0 ? `
+                        <div class="history-section fade-in-on-scroll" style="margin-top: 2rem;">
+                            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;"><i class="fas fa-heart"></i> Razones para Visitar</h2>
+                            <ul style="list-style: none; padding: 0;">
+                                ${destination.reasonsToVisit.map(reason => `
+                                    <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255, 107, 157, 0.1); display: flex; align-items: start; gap: 1rem;">
+                                        <i class="fas fa-check-circle" style="color: var(--primary-color); margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                        <span style="font-size: 1.125rem; line-height: 1.8; color: var(--text-secondary);">${reason}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+                        
+                        ${destination.whatItOffers && destination.whatItOffers.length > 0 ? `
+                        <div class="history-section fade-in-on-scroll" style="margin-top: 2rem;">
+                            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;"><i class="fas fa-star"></i> Lo Que Ofrece</h2>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                                ${destination.whatItOffers.map(offer => `
+                                    <div style="padding: 1rem; background: rgba(255, 107, 157, 0.05); border-radius: 10px; border-left: 3px solid var(--primary-color);">
+                                        <i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                                        <span style="font-size: 1rem; color: var(--text-secondary);">${offer}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        ${destination.videoId ? createVideoEmbed(destination.videoId, 'Video del Destino') : ''}
+                        
+                        ${destination.images && destination.images.length > 0 ? createImageGallery(destination.images, 'Galería de Imágenes') : ''}
+                        
+                        ${destination.contact ? `
+                        <div class="contact-section fade-in-on-scroll">
+                            <h3><i class="fas fa-address-book"></i> Información de Contacto</h3>
+                            <div class="contact-info">
+                                ${destination.contact.phone ? `<p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <a href="tel:${destination.contact.phone.replace(/\s/g, '')}" style="color: var(--primary-color);">${destination.contact.phone}</a></p>` : ''}
+                                ${destination.contact.website ? `<p><i class="fas fa-globe"></i> <strong>Sitio Web:</strong> <a href="${destination.contact.website}" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">${destination.contact.website}</a></p>` : ''}
+                                ${destination.contact.social ? `<p><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://instagram.com/${destination.contact.social.replace('@', '')}" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">${destination.contact.social}</a></p>` : ''}
+                            </div>
+                        </div>
+                        ` : ''}
+                        
+                        ${destination.coordinates ? createGoogleMap(destination.coordinates.lat, destination.coordinates.lng, destination.name) : ''}
+                    </div>
+                `;
+                
+                document.getElementById('destination-detail-container').innerHTML = html;
+                
+                // Inicializar animaciones después de cargar el contenido
+                setTimeout(() => {
+                    if (typeof initScrollAnimations === 'function') {
+                        initScrollAnimations();
+                    }
+                }, 100);
+                
+            } catch (error) {
+                console.error('Error cargando detalles del destino:', error);
+                document.getElementById('destination-detail-container').innerHTML = `
+                    <div style="text-align: center; padding: 4rem 2rem;">
+                        <h2 style="color: red;">Error al cargar el destino</h2>
+                        <p>Hubo un problema al cargar la información. Por favor, intenta de nuevo.</p>
+                        <a href="destinations.html" class="btn btn-primary" style="margin-top: 1rem;">Volver a Destinos</a>
+                    </div>
+                `;
+            }
         }
         
-        // Cargar cuando el DOM esté listo
+        // Cargar cuando el DOM esté listo y los scripts estén cargados
+        function initDestinationDetail() {
+            const checkScripts = setInterval(() => {
+                if (typeof getDestinationById !== 'undefined' && 
+                    typeof createVideoEmbed !== 'undefined' && 
+                    typeof createImageGallery !== 'undefined' && 
+                    typeof createGoogleMap !== 'undefined') {
+                    clearInterval(checkScripts);
+                    loadDestinationDetail();
+                }
+            }, 50);
+            
+            // Timeout de seguridad
+            setTimeout(() => {
+                clearInterval(checkScripts);
+                if (typeof getDestinationById !== 'undefined') {
+                    loadDestinationDetail();
+                }
+            }, 3000);
+        }
+        
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadDestinationDetail);
+            document.addEventListener('DOMContentLoaded', initDestinationDetail);
         } else {
-            loadDestinationDetail();
+            initDestinationDetail();
         }
     </script>
 </body>
